@@ -11,6 +11,7 @@ export default function SearchPage({ instance, searchQuery, searchPage, searchRe
     <div className="dark flex flex-col">
       <Navbar searchQuery={searchQuery}/>
       <div className="dark flex flex-row justify-center my-5">
+        {searchQuery ?
         <div className="flex flex-col space-y-5 w-fit">
           {searchResult.map(result => 
             <>
@@ -21,7 +22,10 @@ export default function SearchPage({ instance, searchQuery, searchPage, searchRe
               }
             </>
           )}
-        </div>
+        </div>  
+        :
+        <p>Nothing to display here</p>
+        }
       </div>
     </div>
   )
