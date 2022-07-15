@@ -2,7 +2,7 @@ import { FormatNumber } from "../../js/utils"
 
 export default function VideoCard({ instance, video }) {
   return (
-    <div className="ring-1 ring-gray-200 bg-gray-50 rounded flex flex-row max-w-[720px]">
+    <div className="ring-1 ring-gray-200 bg-gray-100 rounded flex flex-row max-w-[720px]">
       <a href={`/video?id=${video.videoId}`}>
         <img className="rounded rounded-tr-none rounded-br-none border-r border-gray-200 !w-[240px] !h-[135px]" alt={`Video Thumbnail`} height="135px" width="240px" src={video.videoThumbnails.filter(thumbnail => thumbnail.quality === "medium")[0].url}/>
       </a>

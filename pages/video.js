@@ -8,7 +8,7 @@ export default function Videos({ instance, searchQuery, video }) {
       <Navbar searchQuery={searchQuery}/>
       <div className="dark flex flex-row justify-center my-5">
         <div className="flex flex-col space-y-5 w-fit">
-          Test
+          <a href={`https://youtube.com/watch?v=${video.videoId}`}>Test</a>
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ import { FormatNumber } from "../../js/utils"
 
 export default function ChannelCard({ channel }) {
   return (
-    <div className="ring-1 ring-gray-200 bg-gray-50 rounded flex flex-row w-[720px] max-w-[720px]">
+    <div className="ring-1 ring-gray-200 bg-gray-100 rounded flex flex-row w-[720px] max-w-[720px]">
       <div className="flex flex-col w-[615px] p-2 overflow-hidden">
         <a href={`/channel?id=${channel.authorId}`} className="hover:opacity-50 font-bold mb-2 duration-75">
           {channel.author} {channel.authorVerified ? <BadgeCheckIcon className="h-[21px] w-[21px] inline -mt-0.5"/>: ""}

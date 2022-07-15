@@ -1,5 +1,7 @@
 import React from "react";
 
+import { useRouter } from 'next/router';
+
 import 'tailwindcss/tailwind.css'
 
 import Navbar from "../components/Navbar";
@@ -7,6 +9,8 @@ import VideoCard from "../components/search/VideoCard";
 import ChannelCard from "../components/search/ChannelCard";
 
 export default function SearchPage({ instance, searchQuery, searchPage, searchResult }) {
+  const router = useRouter();
+
   return (
     <div className="dark flex flex-col">
       <Navbar searchQuery={searchQuery}/>
@@ -22,6 +26,10 @@ export default function SearchPage({ instance, searchQuery, searchPage, searchRe
               }
             </>
           )}
+          <button onClick={() => {
+
+            router.replace(`/search?q=${encodeURIComponent(searchQuery)}&p=${parseInt(searchPage) + 1}`);
+          }}>Load more</button>
         </div>  
         :
         <p>Nothing to display here</p>
@@ -51,5 +59,5 @@ export async function getServerSideProps({ query, res }) {
 
   searchResult = await searchResult.json()
 
-  return { props: { instance: instances[0], searchQuery: query.q, searchPage: query.p || 1, searchResult } };
+  return { props: { instance: instances[0], searchQuery: query.q || null, searchPage: query.p || 1, searchResult } };
 }
